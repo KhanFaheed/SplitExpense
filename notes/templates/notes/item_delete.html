@@ -1,0 +1,15 @@
+{% extends 'main.html' %}
+
+{% block contain %}
+
+<h2>Delete Item</h2>
+
+<p>Are you sure you want to delete "{{ item.description }}"?</p>
+
+<form action="{{ action_url }}" method="POST">
+    {% csrf_token %}
+    <input type="submit" value="Delete" />
+    <a href="{% url 'home' %}">Cancel</a>
+</form>
+
+{% endblock contain %}

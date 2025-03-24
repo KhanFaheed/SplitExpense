@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+<!--this template is used for both the update and the delete-->
+
+{%block contain%}
+
+<form action="{{action_url}}" method="POST">  
+ <!-- action="{% if item %}{% url 'update-item' item.id %}{% else %}{% url 'create-item' %}{% endif %}"     this method is used for smaller project if we don't use reverse in the views logic-->
+    {% csrf_token %}
+    {% for field in form %}
+    <label for="items-name"><span>{{field.label}}</span></label>
+    {{field}}
+    {%endfor%}
+    <input type="submit" value="{% if item %}Update{% else %}Create{% endif %}" />
+
+
+</form>
+
+{%endblock contain%}

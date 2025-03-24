@@ -1,0 +1,45 @@
+{% extends 'main.html'%}
+{%load static %}
+
+
+{% block contain%}
+
+<h1>Index Page</h1>
+<p><a href="{% url 'create-item' %}"><img src="{% static 'notes/images/add_button.svg' %}" alt="create buttton">Add Item</a></p>
+<br>
+<br>
+
+   
+   <table>
+      <thead>
+         <tr>
+            <th>Date</th>
+            <th>Item Name</span></th>
+            <th>Cost(SAR)</th>
+            <th></th>
+            <th></th>
+         </tr>
+
+      </thead>
+
+      <tbody>
+         {% for item in items %}
+         <tr>
+            <td>{{item.date}}</td>
+            <td>{{item.description}}</td>
+            <td>{{item.cost}} SAR</td>
+            <td><a href="{% url 'update-item' item.id%}"><img src="{% static 'notes/images/update_button.svg' %}" alt="update button" >Update</a></td>
+            <td><a href="{% url 'delete-item' item.id %}"><img src="{% static 'notes/images/delete_button.svg' %}" alt="delete button">Delete</a></td>
+         </tr>
+         {% endfor %}
+      </tbody>
+   </table>
+
+   <br>
+   <br>
+   <div>Total cost:{{total_cost}} SAR</div>
+
+  
+
+
+{% endblock %}
