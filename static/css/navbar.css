@@ -1,0 +1,76 @@
+.navbar{
+    display: flex;
+    justify-content: space-between; /* properties along main axis*/
+    align-items: center  /*along cross axis*/;
+    padding: 1rem 2rem;
+    background-color: #f0f0f0;
+
+}
+
+
+.nav-links{
+    list-style: none; /* remove bullet points*/
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.nav-links li{
+    margin-left: 1.5rem;
+
+}
+.nav-links a{
+    text-decoration: none;
+    color: #333;
+}
+
+.cta button{
+    padding: 0.75rem 1.5rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+
+.mobile-menu-button{
+    display: none; /* hide by default on larger screens */
+    font-size: 1.5rem;
+    background:none;
+    border: none;
+    cursor: pointer;
+
+}
+
+
+/* media query for smaller screens*/
+@media(max-width:768px){
+    .nav-links{
+        display: none;
+        flex-direction: column;
+        width:100% ;
+        background-color: #f0f0f0;
+        position: absolute;
+        top: 60px; /*Adjust based on navbar height*/
+        left: 0;
+        text-align: center;
+    }
+    .nav-links.active{
+        /* class to show/hide the menu (using javacsript)*/
+        display: flex;
+    }
+    .nav-links li{
+        margin: 1rem 0rem;
+
+    }
+    .mobile-menu-button{
+        display: block;
+
+    }
+    .navbar{
+        position: relative;
+    }
+    .cta{
+        margin-left: 0;
+    }
+}
